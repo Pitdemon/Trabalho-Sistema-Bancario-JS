@@ -1,0 +1,48 @@
+//Smulção Sistema Bancario
+
+//Entradas:
+
+let deposito, saque, opcao, saldo = 0
+
+
+//Usar o loop para que o usuário se mantenha na tabeleba até escolher a opção sair:
+
+do {
+
+  opcao = Number(prompt(`Escolha uma das opçoes seguintes:
+  (1)Deposito
+  (2)Saque
+  (3)Saldo
+  (4)Sair`))
+
+  //Switch-case para o usuário escolher uma opçao:
+
+  switch (opcao) {
+    case 1:
+      //Operação para Deposito:
+      deposito = Number(prompt(`Digite o valor do Deposito: R$`))
+      saldo += deposito
+      alert(`Valor do Deposito: R$${deposito}
+    Saldo Atual: R$${saldo}`)
+      break
+
+    case 2:
+      //Operação para Saque:
+      saque = Number(prompt(`Digite o valor do Saque: R$`))
+      //if-else para que caso o usuário peça um saque maior do que o seu saldo atual:
+      if (saque > saldo) {
+        alert(`SALDO INSUFICIENTE!`)
+      } else {
+        saldo -= saque
+        alert(`Valor do Saque: R$${saque}
+      Saldo Atual: R$${saldo}`)
+      }
+      break
+
+    case 3:
+      //Mostrar o Saldo do usuário:
+      alert(`Saldo Atual: R$${saldo}`)
+      break
+  }
+
+} while (opcao != 4)
